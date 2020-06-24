@@ -1,0 +1,13 @@
+.image {
+  max-height: 80px;
+  margin: auto;
+}
+
+td {
+  font-size: large;
+  vertical-align: middle !important;
+}
+
+.row {
+  margin-right: 0;
+}
