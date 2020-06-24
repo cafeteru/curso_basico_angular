@@ -12,7 +12,7 @@
       <tr *ngFor="let movie of movies">
         <td><img class="img-responsive img-rounded image" [src]="movie.poster" /></td>
         <td (click)="onTitleClick(movie)">{{movie.title | impressive | uppercase}}</td>
-        <td>{{movie.year}}</td>
+        <td [appTableSuccess]="isYoungMovie(movie.year)">{{movie.year}}</td>
         <td>{{movie.type}}</td>
       </tr>
     </tbody>

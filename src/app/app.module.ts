@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MoviesComponent } from './movies/movies.component';
 import { ImpressivePipe } from './impressive.pipe';
+import { TableSuccessDirective } from './table-success.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MoviesComponent,
-    ImpressivePipe
+    ImpressivePipe,
+    TableSuccessDirective
   ],
   imports: [
     BrowserModule

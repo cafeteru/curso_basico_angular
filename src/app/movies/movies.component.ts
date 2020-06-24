@@ -21,4 +21,8 @@ export class MoviesComponent implements OnInit {
   onTitleClick(movie: Movie): void {
     alert('Click on: ' + movie.title);
   }
+
+  isYoungMovie(year: number): boolean {
+    return year > 2000;
+  }
 }
