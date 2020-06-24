@@ -6,7 +6,7 @@ import { Movie } from 'src/domain/movie';
   templateUrl: './movie-title.component.html',
   styleUrls: ['./movie-title.component.css'],
 })
-export class MovieTitleComponent implements OnInit {
+export class MovieTitleComponent {
   @Input()
   movie: Movie;
 
@@ -16,8 +16,6 @@ export class MovieTitleComponent implements OnInit {
   constructor() {
     this.titleClick = new EventEmitter();
   }
-
-  ngOnInit(): void {}
 
   onTitleClick(movie: Movie) {
     this.titleClick.emit(movie);

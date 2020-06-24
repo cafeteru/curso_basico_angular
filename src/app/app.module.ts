@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { MoviesComponent } from './movies/movies.component';
 import { TableSuccessDirective } from './directives/table-success.directive';
 import { ImpressivePipe } from './pipes/impressive.pipe';
-import { MovieTitleComponent } from './movie-title/movie-title.component';
+import { MovieTitleComponent } from './movies/movie-title/movie-title.component';
 
 @NgModule({
   declarations: [
