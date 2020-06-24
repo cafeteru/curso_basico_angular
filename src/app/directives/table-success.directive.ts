@@ -7,7 +7,7 @@ export class TableSuccessDirective implements OnInit {
   @Input('appTableSuccess')
   showClass: boolean;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private readonly elementRef: ElementRef) {}
 
   ngOnInit(): void {
     if (this.showClass) {

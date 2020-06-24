@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MoviesComponent } from './movies/movies.component';
-import { ImpressivePipe } from './impressive.pipe';
-import { TableSuccessDirective } from './table-success.directive';
+import { TableSuccessDirective } from './directives/table-success.directive';
+import { ImpressivePipe } from './pipes/impressive.pipe';
 
 @NgModule({
   declarations: [
@@ -13,12 +13,10 @@ import { TableSuccessDirective } from './table-success.directive';
     HeaderComponent,
     MoviesComponent,
     ImpressivePipe,
-    TableSuccessDirective
+    TableSuccessDirective,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

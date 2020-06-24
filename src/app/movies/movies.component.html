@@ -9,6 +9,9 @@
       </tr>
     </thead>
     <tbody>
+      <tr *ngIf="!movies.length">
+        <td colspan="4" class="text-center">No movies available :(</td>
+      </tr>
       <tr *ngFor="let movie of movies">
         <td><img class="img-responsive img-rounded image" [src]="movie.poster" /></td>
         <td (click)="onTitleClick(movie)">{{movie.title | impressive | uppercase}}</td>
