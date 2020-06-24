@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/domain/movie';
 import { MoviesService } from './movies.service';
 
@@ -9,12 +9,9 @@ import { MoviesService } from './movies.service';
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[];
-  @Output()
-  emmiter: EventEmitter<boolean>;
 
   constructor(private moviesService: MoviesService) {
     this.movies = [];
-    this.emmiter = new EventEmitter();
   }
 
   ngOnInit(): void {
@@ -31,11 +28,13 @@ export class MoviesComponent implements OnInit {
 
   saveFavorite(movie: Movie): void {
     this.moviesService.saveFavouriteMovie(movie);
-    this.emmiter.emit(true);
   }
 
   deleteFavorite(movie: Movie): void {
     this.moviesService.deleteFavouriteMovie(movie);
-    this.emmiter.emit(true);
+  }
+
+  onSearch(searchTerm: string): void {
+    this.movies = this.moviesService.search(searchTerm);
   }
 }

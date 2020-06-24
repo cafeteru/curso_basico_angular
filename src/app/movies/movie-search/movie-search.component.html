@@ -1,4 +1,9 @@
 <form class="form-inline row" (ngSubmit)="onSubmit(form)" #form="ngForm">
-  <input type="text" class="form-control col-8" placeholder="Specify a search term.." name="searchTerm" ngModel />
-  <button type="submit" class="btn btn-secondary col-3 ml-auto">Search</button>
+  <div class="col-8">
+    <input type="text" class="form-control w-100" placeholder="Specify a search term.." name="searchTerm"
+      pattern="^[a-zA-Z0-9]{0,10}$" ngModel #searchTerm="ngModel" />
+    <small *ngIf="(searchTerm.touched || searchTerm.dirty) && searchTerm.invalid" class="form-text text-mutted">Search
+      term must not exceed 10 characters and must not contain spaces.</small>
+  </div>
+  <button type="submit" class="btn btn-secondary col-3 ml-auto" [disabled]="form.invalid">Search</button>
 </form>

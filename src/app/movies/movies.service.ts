@@ -21,4 +21,13 @@ export class MoviesService {
   deleteFavouriteMovie(movie: Movie): void {
     this.favouriteMovies.delete(movie);
   }
+
+  search(searchTerm?: string): Movie[] {
+    if (!searchTerm) {
+      return this.movies;
+    }
+    return this.movies.filter((movie: Movie) =>
+      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
 }
