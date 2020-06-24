@@ -11,3 +11,7 @@ td {
 .row {
   margin-right: 0;
 }
+
+.btn-success {
+  margin-right: 10px;
+}

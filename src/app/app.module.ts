@@ -7,6 +7,10 @@ import { MoviesComponent } from './movies/movies.component';
 import { TableSuccessDirective } from './directives/table-success.directive';
 import { ImpressivePipe } from './pipes/impressive.pipe';
 import { MovieTitleComponent } from './movies/movie-title/movie-title.component';
+import { MoviesService } from './movies/movies.service';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { FormsModule } from '@angular/forms';
+import { MovieSearchComponent } from './movies/movie-search/movie-search.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +20,11 @@ import { MovieTitleComponent } from './movies/movie-title/movie-title.component'
     ImpressivePipe,
     TableSuccessDirective,
     MovieTitleComponent,
+    FavouritesComponent,
+    MovieSearchComponent,
   ],
-  imports: [BrowserModule],
-  providers: [],
+  imports: [BrowserModule, FormsModule],
+  providers: [MoviesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
