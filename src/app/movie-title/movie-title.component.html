@@ -1,1 +1,1 @@
-<td (click)="onTitleClick(movie)">{{movie.title | impressive | uppercase}}</td>
+<td (click)="onTitleClick(movie)" *ngIf="movie">{{movie.title | impressive | uppercase}}</td>

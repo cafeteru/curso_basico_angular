@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieTitleComponent } from './movie-title.component';
+import { ImpressivePipe } from '../pipes/impressive.pipe';
 
 describe('MovieTitleComponent', () => {
   let component: MovieTitleComponent;
@@ -8,7 +9,7 @@ describe('MovieTitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieTitleComponent ]
+      declarations: [ MovieTitleComponent, ImpressivePipe ]
     })
     .compileComponents();
   }));
