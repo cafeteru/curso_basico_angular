@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Movie } from 'src/domain/movie';
 import movies from 'src/assets/movies.json';
 
