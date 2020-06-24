@@ -11,6 +11,7 @@ import { MoviesService } from './movies/movies.service';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { FormsModule } from '@angular/forms';
 import { MovieSearchComponent } from './movies/movie-search/movie-search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { MovieSearchComponent } from './movies/movie-search/movie-search.compone
     FavouritesComponent,
     MovieSearchComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [MoviesService],
   bootstrap: [AppComponent],
 })

@@ -15,7 +15,7 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movies = this.moviesService.movies;
+    this.moviesService.search().subscribe((movies) => (this.movies = movies));
   }
 
   onTitleClick(movie: Movie): void {
@@ -35,6 +35,8 @@ export class MoviesComponent implements OnInit {
   }
 
   onSearch(searchTerm: string): void {
-    this.movies = this.moviesService.search(searchTerm);
+    this.moviesService
+      .search(searchTerm)
+      .subscribe((movies) => (this.movies = movies));
   }
 }

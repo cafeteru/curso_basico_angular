@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Movie } from 'src/domain/movie';
 import movies from 'src/assets/movies.json';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesService {
+  static API_URI = 'https://www.omdbapi.com';
+  static API_KEY = 'b0930d45';
+
   movies: Movie[];
   favouriteMovies: Set<Movie>;
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.movies = movies;
     this.favouriteMovies = new Set();
   }
@@ -22,12 +28,30 @@ export class MoviesService {
     this.favouriteMovies.delete(movie);
   }
 
-  search(searchTerm?: string): Movie[] {
+  search(searchTerm?: string): Observable<Movie[]> {
     if (!searchTerm) {
-      return this.movies;
+      searchTerm = 'Terminator';
     }
-    return this.movies.filter((movie: Movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    return this.httpClient
+      .get<any>(
+        MoviesService.API_URI +
+          '/?s=' +
+          searchTerm +
+          '&apiKey=' +
+          MoviesService.API_KEY
+      )
+      .pipe(map((response) => this.convertToMovies(response.Search)));
+  }
+
+  private convertToMovies(movieList: any[]): Movie[] {
+    return movieList.map((movie) => {
+      return {
+        title: movie.Title,
+        imdbID: movie.imdbID,
+        poster: movie.Poster,
+        type: movie.Type,
+        year: movie.Year,
+      };
+    });
   }
 }

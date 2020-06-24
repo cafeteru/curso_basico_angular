@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-search',
@@ -13,7 +14,7 @@ export class MovieSearchComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(form: any): void {
+  onSubmit(form: NgForm): void {
     this.search.emit(form.value.searchTerm);
   }
 }
