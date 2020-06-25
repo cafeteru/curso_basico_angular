@@ -1,8 +1,10 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "resolveJsonModule": true, // Para poder leer json locales
+    "esModuleInterop": true, // Para poder leer json locales
   },
   "files": [
     "src/main.ts",

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Movie } from 'src/domain/movie';
-import movies from 'src/assets/movies.json';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -16,7 +15,6 @@ export class MoviesService {
   favouriteMovies: Set<Movie>;
 
   constructor(private httpClient: HttpClient) {
-    this.movies = movies;
     this.favouriteMovies = new Set();
   }
 
@@ -44,14 +42,17 @@ export class MoviesService {
   }
 
   private convertToMovies(movieList: any[]): Movie[] {
-    return movieList.map((movie) => {
-      return {
-        title: movie.Title,
-        imdbID: movie.imdbID,
-        poster: movie.Poster,
-        type: movie.Type,
-        year: movie.Year,
-      };
-    });
+    if (movieList) {
+      return movieList.map((movie) => {
+        return {
+          title: movie.Title,
+          imdbID: movie.imdbID,
+          poster: movie.Poster,
+          type: movie.Type,
+          year: movie.Year,
+        };
+      });
+    }
+    return null;
   }
 }
