@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MoviesComponent } from './movies.component';
 import { ImpressivePipe } from '../pipes/impressive.pipe';
+import { MoviesComponent } from './movies.component';
 
 describe('MoviesComponent', () => {
   let component: MoviesComponent;

@@ -1,9 +1,8 @@
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
-import { MoviesService } from '../movies/movies.service';
 import { Movie } from 'src/domain/movie';
+
+import { Component, OnInit } from '@angular/core';
+
+import { MoviesService } from '../movies/movies.service';
 
 @Component({
   selector: 'app-favourites',

@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Movie } from 'src/domain/movie';
 import { MovieDetail } from 'src/domain/movie-detail';
-import { Observable } from 'rxjs';
+
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',

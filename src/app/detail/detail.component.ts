@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { MovieDetail } from 'src/domain/movie-detail';
-import { MoviesService } from '../movies/movies.service';
+
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+import { MoviesService } from '../movies/movies.service';
 
 @Component({
   selector: 'app-detail',
