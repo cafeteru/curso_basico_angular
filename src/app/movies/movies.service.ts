@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Movie } from 'src/domain/movie';
+import { MovieDetail } from 'src/domain/movie-detail';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -54,5 +55,29 @@ export class MoviesService {
       });
     }
     return null;
+  }
+
+  get(imdbID: string): Observable<MovieDetail> {
+    return this.httpClient
+      .get<any>(
+        MoviesService.API_URI +
+          '/?i=' +
+          imdbID +
+          '&apiKey=' +
+          MoviesService.API_KEY
+      )
+      .pipe(map((response) => this.convertToMovieDetail(response)));
+  }
+
+  private convertToMovieDetail(movie: any): MovieDetail {
+    return {
+      title: movie.Title,
+      imdbID: movie.imdbID,
+      poster: movie.Poster,
+      type: movie.Type,
+      year: movie.Year,
+      plot: movie.Plot,
+      runtime: movie.Runtime,
+    };
   }
 }

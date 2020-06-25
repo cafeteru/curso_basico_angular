@@ -12,6 +12,9 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { FormsModule } from '@angular/forms';
 import { MovieSearchComponent } from './movies/movie-search/movie-search.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { DetailComponent } from './detail/detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     MovieTitleComponent,
     FavouritesComponent,
     MovieSearchComponent,
+    DetailComponent,
+    PageNotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
   providers: [MoviesService],
   bootstrap: [AppComponent],
 })

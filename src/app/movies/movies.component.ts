@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from './movies.service';
 import { Observable } from 'rxjs';
 import { Movie } from 'src/domain/movie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -11,15 +12,14 @@ import { Movie } from 'src/domain/movie';
 export class MoviesComponent implements OnInit {
   movies$: Observable<Movie[]>;
 
-  constructor(private moviesService: MoviesService) {
-  }
+  constructor(private moviesService: MoviesService, private router: Router) {}
 
   ngOnInit(): void {
     this.movies$ = this.moviesService.search();
   }
 
   onTitleClick(movie: Movie): void {
-    alert('Click on: ' + movie.title);
+    this.router.navigate(['app', 'movie', movie.imdbID]);
   }
 
   isYoungMovie(year: number): boolean {
