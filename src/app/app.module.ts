@@ -1,3 +1,5 @@
+import { OrderModule } from 'ngx-order-pipe';
+
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +31,7 @@ import { ImpressivePipe } from './pipes/impressive.pipe';
     DetailComponent,
     PageNotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, OrderModule],
   providers: [MoviesService],
   bootstrap: [AppComponent],
 })

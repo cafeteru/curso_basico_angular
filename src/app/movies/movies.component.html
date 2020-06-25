@@ -11,8 +11,8 @@
       </tr>
     </thead>
     <tbody>
-        <ng-container *ngIf="movies$ | async as movies; else noMoviesAvailable">
-        <tr *ngFor="let movie of movies">
+      <ng-container *ngIf="movies$ | async as movies ; else noMoviesAvailable">
+        <tr *ngFor="let movie of movies | orderBy:'year':true">
           <td><img class="img-responsive img-rounded image" [src]="movie.poster" /></td>
           <app-movie-title (titleClick)="onTitleClick($event)" [movie]="movie"></app-movie-title>
           <td [appTableSuccess]="isYoungMovie(movie.year)">{{movie.year}}</td>
