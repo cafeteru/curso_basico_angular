@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { MovieSearchComponent } from './movie-search.component';
 
@@ -8,7 +10,8 @@ describe('MovieSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieSearchComponent ]
+      declarations: [ MovieSearchComponent ],
+      imports: [HttpClientModule, FormsModule]
     })
     .compileComponents();
   }));
