@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/domain/movie';
 import { MoviesService } from './movies.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -8,14 +9,13 @@ import { MoviesService } from './movies.service';
   styleUrls: ['./movies.component.css'],
 })
 export class MoviesComponent implements OnInit {
-  movies: Movie[];
+  movies$: Observable<Movie[]>;
 
   constructor(private moviesService: MoviesService) {
-    this.movies = [];
   }
 
   ngOnInit(): void {
-    this.moviesService.search().subscribe((movies) => (this.movies = movies));
+    this.movies$ = this.moviesService.search();
   }
 
   onTitleClick(movie: Movie): void {
@@ -35,8 +35,6 @@ export class MoviesComponent implements OnInit {
   }
 
   onSearch(searchTerm: string): void {
-    this.moviesService
-      .search(searchTerm)
-      .subscribe((movies) => (this.movies = movies));
+    this.movies$ = this.moviesService.search(searchTerm);
   }
 }

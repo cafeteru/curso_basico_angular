@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngIf="movies.length; else noMoviesAvailable">
+        <ng-container *ngIf="movies$ | async as movies; else noMoviesAvailable">
         <tr *ngFor="let movie of movies">
           <td><img class="img-responsive img-rounded image" [src]="movie.poster" /></td>
           <app-movie-title (titleClick)="onTitleClick($event)" [movie]="movie"></app-movie-title>
